@@ -84,7 +84,7 @@ POST
 요청 BODY는 길이 제한이 없기 때문에 GET과 달리 대용량 데이터 전송 가능
 요청 헤더의 Content-Type에 요청 데이터의 타입을 표시해야한다
 
-
+참고 : https://dev-coco.tistory.com/60
 
 ## 6. HTTP와 HTTPS의 차이 
 암호화 : encryption
