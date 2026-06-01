@@ -145,7 +145,7 @@ OAuth 2.0
 Bearer Token
 JWS / JWE
 
-- localStorage vs Cookie 차이?
+### localStorage vs Cookie 차이?
 -> 저장 위치, 자동 전송 여부, 보안 특성
 localStorage는 구현은 쉽지만 XSS에 약하다.
 Cookie는 자동 전송되고 보안 옵션을 줄 수 있지만 CSRF에 주의해야 한다.
@@ -157,7 +157,9 @@ Access Token은 메모리
 Refresh Token은 HttpOnly Cookie
 조합을 많이 고려한다.
 
-- HttpOnly Cookie를 사용하는 이유는?
+### 참고 : 쿠키-캐시 : https://dev-coco.tistory.com/61
+
+### HttpOnly Cookie를 사용하는 이유는?
 JS로 토큰을 못 읽게 해서 XSS로 인한 탈취 위험을 줄이기 위해서
 HttpOnly가 붙은 쿠키는:
 
