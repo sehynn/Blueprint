@@ -286,3 +286,62 @@ MSA + AI + 실시간 시스템 때문에 네트워크 비용, latency(요청 보
 | 사용처   | MSA 내부            | Next.js/BFF      |
 | 특징    | infra-oriented    | DX-oriented      |
 
+
+## 12. Redis 
+Redis(Remote Dictionary Server)는 메모리 기반의 NoSQL 데이터 저장소입니다.
+데이터를 RAM에 저장하기 때문에 디스크 기반 DB보다 매우 빠른 읽기/쓰기 성능을 제공합니다.
+이를 통해: DB 부하 감소, 응답 속도 향상, 대용량 트래픽 처리가 가능합니다.
+
+Redis vs RDBMS
+| Redis        | RDBMS    |
+| ------------ | -------- |
+| In-memory    | Disk 기반  |
+| 매우 빠름        | 상대적으로 느림 |
+| Key-Value    | Table 기반 |
+| NoSQL        | SQL      |
+| 복잡한 Join 어려움 | Join 가능  |
+
+Redis는 빠른 데이터 접근에 강점이 있고,
+RDBMS는 영속성과 복잡한 관계 데이터 처리에 강점이 있습니다.
+
+Redis가 빠른 이유
+- 데이터를 RAM에 저장
+- Single Thread Event Loop 구조
+  멀티 스레드 환경에서는 락 관리 비용이 발생, 싱글 스레드 기반으로 설계하여 컨텍스트 스위칭 제거, 락 오버헤드 제거(일부 네트워크 부분은 멀티스레드 활용)
+- 단순한 Key-Value 구조
+디스크 I/O가 발생하지 않아 매우 빠르게 데이터를 처리할 수 있습니다.
+
+Redis 자료구조
+string, list, hash, set, sorted set(실시간 랭킹 시스템)
+
+- Cache Aside Pattern : 가장 많이 사용하는 캐싱 패턴으로 캐시 미스 시에만 db 조회하고 redis 에 저장 
+- Write Through : 데이터 저장 시 redis, db 동시에 반영하는 방식, 일관성이 높다.
+- Cache Stampede : 캐시가 동시에 만료되어 수많은 요청이 한 번에 db로 몰리는 현상. TTL 랜덤 적용, 뮤텍스 락, 프리워밍으로 해결 
+- Cache Penetration : 존재하지 않는 데이터에 대한 요청이 반복되어 매번 DB 조회가 발생하는 현상 : null 캐시, 블룸 필터로 해결
+- Cache Avalanche : 대량의 캐시가 동시에 만료되는 현상 TTL 랜덤화, 다중 캐시로 해결
+- Redis Persistence : 메모리에 저장된 데이터를 디스크에 백업하는 기능 -> RDB, AOF 방식이 있다.
+| RDB      | AOF       |
+| -------- | --------- |
+| Snapshot | 명령어 로그    |
+| 복구 빠름    | 데이터 유실 적음 |
+| 파일 작음    | 파일 큼      |
+| 성능 좋음    | 성능 낮음     |
+- Redis Pub/Sub : Publisher가 메시지를 발행하면 Subscriber가 실시간으로 수신하는 구조
+  publisher -> redis -> subscriber 구조로 채팅, 알림에 활용됨. but 메시지 영속성이 없어서 subscriber 연결이 끊겨 있으면 메시지 수신 불가
+- Redis 분산 락 : 멀티 서버 환경에서 동시성 문제 해결하기 위해 사용 SETNX 명령어 활용하여 여러 서버가 동시에 같은 자원을 수정하지 못하게.
+- Redis TTL : time to live (데이터 만료 시간)
+
+주로 다음 용도로 사용됩니다.
+- 캐싱(Cache)
+- 세션 저장소
+- 실시간 랭킹 시스템
+- 분산 락
+- Pub/Sub
+- 메시지 브로커
+
+## 13. PostgreSQL
+
+## 14. MongoDB
+
+
+
