@@ -295,3 +295,6 @@ Request 3 → 독립 처리
 
 
 ## Serverless vs Provisioned 
+
+
+## 람다에서 PostgreSQL에 직접 접속하면 안 되는 이유 
