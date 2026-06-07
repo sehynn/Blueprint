@@ -1,4 +1,4 @@
-
+ML engineer Roadmap : https://jjeongil.tistory.com/3282
 
 ## 머신러닝
 방대한 데이터를 바탕으로 스스로 패턴을 학습하고 예측/결정을 내리게 하는 AI 기술
