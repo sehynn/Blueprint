@@ -116,3 +116,40 @@ Gradient Boosting is an ensemble learning method that improves prediction perfor
 ex 모델이 궁금한거 28살인가 25살인가가 아니라, 둘의 나이차이가 얼마나 나나? -> 나이차 데이터 넣기 
 
 좋은 Feature의 특징 : 비즈니스 의미가 있음, 결과와 관련 있음
+
+## Pandas
+파이썬에서 표 데이터를 다루는 도구. 머신러닝 하기 전 데이터 가공에 씀 
+
+## SQL 기반 Feature Engineering 
+DB에 있는 로그에서 모델용 feature을 만드는 것 
+
+## ROC Curve 
+모델이 성공/실패를 얼마나 잘 구분하는지 보는 그래프 
+x축: False Positive Rate
+y축: True Positive Rate
+
+## 틴더 힌지  
+1. Candidate Generation
+   전체 유저 수십만~수천만 명
+   ↓
+   후보 수백~수천 명으로 압축
+
+2. Ranking
+   후보 각각에 match_score 계산
+
+3. Re-ranking / Policy
+   다양성, 안전성, 노출 공정성, 과금, 신고 위험 반영
+
+4. Top-K 노출
+
+틴더 TinVec : 유저의 swipe 행동을 바탕으로 유저 취향을 벡터 임베딩으로 표현하고 그 벡터와 가까운 후보를 추천하는 방식
+내가 좋아요 누른 사람들 -> 내 취향 벡터 생성 -> 비슷한 벡터의 사람 추천
+
+힌지 Most Compatible : 머신러닝 + Gale-Shapley stable matching -> 내가 좋아할 사람뿐 아니라 상대도 나를 좋아할 가능성을 같이 본다. 
+
+대형 추천시스템은 Two-Tower Model을 많이 씀. 유저와 후보를 각각 벡터로 만들고 가까운 벡터를 빠르게 찾는 구조. 
+
+
+## Top-K 추천 
+후보들 중 점수가 가장 높은 k개만 추천하는 것 
+
