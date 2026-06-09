@@ -91,10 +91,10 @@ Light Gradient Boosting Machine
 그래서 강화/오차 줄이기 
 
 ## Random Forest와 차이?
-Random Forest: 트리 여러 개를 독립적으로 생성
-Gradient Boosting : 트리 여러 개를 순차적으로 생성하여 앞 트리 실수를 뒤 트리가 보완하는 앙상블 기법 
-Gradient Boosting is an ensemble learning method that improves prediction performance by sequentially adding decision trees, with each tree focusing on correcting the mistakes of the previous ones.
-그래서 보통 Gradient Boosting > Random Forest 인 경우가 많음 
+- Random Forest: 트리 여러 개를 독립적으로 생성
+- Gradient Boosting : 트리 여러 개를 순차적으로 생성하여 앞 트리 실수를 뒤 트리가 보완하는 앙상블 기법 
+- Gradient Boosting is an ensemble learning method that improves prediction performance by sequentially adding decision trees, with each tree focusing on correcting the mistakes of the previous ones.
+- 그래서 보통 Gradient Boosting > Random Forest 인 경우가 많음 
 
 ## 결정트리
 - 결정트리는 질문을 계속 하는 모델 (if/else, if/else를 자동으로 만드는 모델)
@@ -112,10 +112,9 @@ Gradient Boosting is an ensemble learning method that improves prediction perfor
 
 
 ## Feature Engineering 
-원본 데이터를 모델이 학습하기 좋은 형태로 변환하는 과정 
-ex 모델이 궁금한거 28살인가 25살인가가 아니라, 둘의 나이차이가 얼마나 나나? -> 나이차 데이터 넣기 
-
-좋은 Feature의 특징 : 비즈니스 의미가 있음, 결과와 관련 있음
+- 원본 데이터를 모델이 학습하기 좋은 형태로 변환하는 과정 
+- ex 모델이 궁금한거 28살인가 25살인가가 아니라, 둘의 나이차이가 얼마나 나나? -> 나이차 데이터 넣기 
+- 좋은 Feature의 특징 : 비즈니스 의미가 있음, 결과와 관련 있음
 
 ## Pandas
 파이썬에서 표 데이터를 다루는 도구. 머신러닝 하기 전 데이터 가공에 씀 
@@ -124,9 +123,9 @@ ex 모델이 궁금한거 28살인가 25살인가가 아니라, 둘의 나이차
 DB에 있는 로그에서 모델용 feature을 만드는 것 
 
 ## ROC Curve 
-모델이 성공/실패를 얼마나 잘 구분하는지 보는 그래프 
-x축: False Positive Rate
-y축: True Positive Rate
+- 모델이 성공/실패를 얼마나 잘 구분하는지 보는 그래프 
+- x축: False Positive Rate
+- y축: True Positive Rate
 
 ## 틴더 힌지  
 1. Candidate Generation
