@@ -219,6 +219,11 @@ JWS / JWE
 ### localStorage vs Cookie 차이?
 -> 저장 위치, 자동 전송 여부, 보안 특성
 localStorage는 구현은 쉽지만 XSS에 약하다.
+
+*XSS(교차 사이트 스크립팅, Cross-Site Scripting)는 공격자가 웹사이트에 악성 스크립트를 삽입하는 보안 취약점입니다. 
+사용자가 해당 페이지에 접속하면 브라우저에서 스크립트가 실행되어 쿠키 탈취, 세션 하이재킹, 사용자 정보 도난 등의 피해가 발생합니다.
+
+
 Cookie는 자동 전송되고 보안 옵션을 줄 수 있지만 CSRF에 주의해야 한다.
 *CSRF : Cross-Site Request Forgery (사이트 간 요청 위조)
 사용자가 의도하지 않았는데, 이미 로그인된 상태를 이용해서 악성 요청을 보내게 만드는 공격이야. -> “브라우저가 자동으로 쿠키를 보내는 특성”을 악용하는 것
@@ -291,12 +296,19 @@ HttpOnly Cookie는 JavaScript에서 접근할 수 없기 때문에 XSS로 인한
    
 - 강제 로그아웃 구현하는 방법? : “서버가 이 사용자의 토큰을 더 이상 인정하지 않게 만드는 것”
   JWT는 원래 stateless라서, 그냥 발급된 토큰 자체만 보면 서버가 즉시 무효화하기 어렵다
+
+* stateless vs stateful
+  - stateless : 서버가 이전 상태를 기억하지 않는 방식
+  - HTTP는 기본적으로 stateless라 인증 시 토큰을 함꼐 보내야 한다.
+  - stateful : 서버 메모리에 상태를 저장한다.
+  - stateless -> 서버를 여러 대 띄우기 쉬움. stateful은 서버가 바뀌면 상태가 사라지기 때문에, 대규모 서비스(서버가 여러 개)는 JWT+Stateless 구조를 많이 쓴다. 
+
   1. Refresh Token 삭제
   2. Access Token 블랙리스트
   3. 사용자별 토큰 버전 관리
   4. 세션 ID 기반으로 서버 추적
 
-  
+  feature 
 
 - JWT의 크기가 커지면 어떤 문제가 있나요?
 JWT는 보통 요청마다 헤더에 실리기 때문에 크기가 커질수록 매 요청 오버헤드가 누적
