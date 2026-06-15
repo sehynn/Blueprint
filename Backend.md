@@ -297,7 +297,7 @@ HttpOnly Cookie는 JavaScript에서 접근할 수 없기 때문에 XSS로 인한
 - 강제 로그아웃 구현하는 방법? : “서버가 이 사용자의 토큰을 더 이상 인정하지 않게 만드는 것”
   JWT는 원래 stateless라서, 그냥 발급된 토큰 자체만 보면 서버가 즉시 무효화하기 어렵다
 
-* stateless vs stateful
+### stateless vs stateful
   - stateless : 서버가 이전 상태를 기억하지 않는 방식
   - HTTP는 기본적으로 stateless라 인증 시 토큰을 함꼐 보내야 한다.
   - stateful : 서버 메모리에 상태를 저장한다.
@@ -310,7 +310,7 @@ HttpOnly Cookie는 JavaScript에서 접근할 수 없기 때문에 XSS로 인한
 
   feature 
 
-- JWT의 크기가 커지면 어떤 문제가 있나요?
+### JWT의 크기가 커지면 어떤 문제가 있나요?
 JWT는 보통 요청마다 헤더에 실리기 때문에 크기가 커질수록 매 요청 오버헤드가 누적
 1. 네트워크 트래픽 증가
 2. HTTP 헤더 크기 제한에 걸릴 수 있음.
@@ -318,7 +318,7 @@ JWT는 보통 요청마다 헤더에 실리기 때문에 크기가 커질수록 
 4. 민감정보 노출 위험 증가
 
 
-- 대규모 서비스에서 Refresh Token 관리 방법은?
+### 대규모 서비스에서 Refresh Token 관리 방법은?
 누구의 어떤 디바이스 토큰인지 추적 가능해야 한다
 1. Redis에 저장
 2. DB에 저장
