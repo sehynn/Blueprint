@@ -539,3 +539,9 @@ A deadlock occurs when two or more threads wait indefinitely for resources held 
 - Node.js는 기본적으로 Single Thread Event Loop 기반이므로 Java와 같은 전통적인 멀티스레드 Race Condition은 상대적으로 적다.
 - 하지만 Provider 인스턴스는 모든 요청이 공유하므로 요청별 상태를 필드에 저장하면 문제가 발생할 수 있다.
 - 따라서 NestJS의 Singleton Provider는 Stateless하게 설계하는 것이 일반적이다.
+
+## Readonly Replica
+
+## get set 
+
+## pub sub 
