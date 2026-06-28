@@ -918,3 +918,40 @@ Fastlane 실행
 - 머신러닝 모델 서빙
 - 장시간 실행되는 백엔드 서비스
 
+
+---
+## MSA architecture 
+- MSA : Microservice Architecture 
+- 하나의 큰 서비스를 여러 개의 작은 서비스 Microservice로 나누어 개발하고 운영하는 아키텍처
+
+옛날에는 모놀리식(Monolithic)으로 전부 하나의 프로젝트였음
+예를 들면 인스타그램은 로그인-포스트-코멘트-좋아요 기능 다 묶여있고 nest 1 spring 1 db 1 배포도 기능 하나 수정하면 전체 서버 다시 배포 
+MSA는 기능마다 서비스를 나눔 
+
+```
+
+              사용자
+
+                 │
+
+            API Gateway
+
+      ┌────────┼────────┐
+      │        │        │
+ Login      Post     Comment
+ Service    Service   Service
+      │        │        │
+     DB       DB       DB
+     
+
+```
+
+
+그래서 댓글만 수정하면 코멘트 서비스만 배포하면 된다. 
+장애 격리도 잘됨 전체 서비스 안죽으니까 ㅇㅇ 
+그리고 팀별로 개발도 쉽겠네 
+서비스마다 다른 언어를 쓸수도 있따 
+
+단점은 서비스끼리의 통신 비용 (rest api, grpc, message queue)
+네트워크 요청이 많아지므로 지연, 장애 처리도 고려해야 한다
+여러 서비스가 순서대로 작업해야 하므로 중간에 하나가 실패하면 어떡해야 할지 Retry Backfill 설계가 중요 
