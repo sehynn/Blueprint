@@ -326,4 +326,36 @@ React 렌더링
 
 
 
-## XSS
+## XSS : Cross-Site Scripting (근데왜 xss임?)
+- 웹 애플리케이션에 악성 javascript를 삽입항여 다른 사용자의 브라우저에서 실행되도록 만드는 공격
+- 신뢰되지 않은 입력이 브라우저에서 실행 가능한 javascript 컨텍스트로 들어가는 취약점
+- 사용자 입력이 코드로 해석되지 않아야 함.
+
+### 종류
+
+1. Stored XSS
+- Payload가 DB 등에 저장됨.
+- 다른 사용자가 조회할 때 실행.
+- 영향 범위가 가장 큼.
+
+2. Reflected XSS
+- Request 파라미터가 응답에 그대로 반영됨.
+- 악성 URL을 통해 유도.
+
+3. DOM-based XSS
+- 서버 응답은 안전하지만, 클라이언트 JS가 location.search, location.hash 등을 innerHTML 등에 넣으면서 발생.
+
+
+### 방어 
+
+- 방어의 핵심은 Context-aware Output Encoding
+- HTML Context → HTML Escape
+- Attribute Context → Attribute Escape
+- JS Context → JS Escape
+- URL Context → URL Encode
+HTML을 허용해야 하는 경우에는 Escape가 아니라 Sanitize가 필요하다. (예: DOMPurify)
+
+
+### Escape, Sanitize
+- Escape : 인코딩- > 브라우저가 문자 그대로 해석하게 만드는 것. 코드 텍스트를 입력해도 escape 처리하면 코드로 인식하지 않는다. 
+- 
