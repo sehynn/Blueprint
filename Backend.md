@@ -615,3 +615,7 @@ A deadlock occurs when two or more threads wait indefinitely for resources held 
 - 클라이언트가 연결을 시작해서 종료할 때까지 어떤 처리를 할지 설계해야 된다.
 - 연결 -> 인증 -> 룸 입장 -> 메시지 송수신 -> 연결 종료
 
+### Hot Path  
+- Hot Path : 가장 자주 실행되느느 코드 경로 - critical execution path라함
+
+
